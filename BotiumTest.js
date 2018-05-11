@@ -13,7 +13,6 @@ const driver = new BotDriver()
 const compiler = driver.BuildCompiler()
 compiler.ReadScriptsFromDirectory('convos')
 	
-//console.log(compiler.convos)
 compiler.ExpandConvos()
 compiler.convos.forEach((convo) => console.log(convo.toString()))
 
