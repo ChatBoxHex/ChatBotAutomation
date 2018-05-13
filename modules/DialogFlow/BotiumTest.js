@@ -2,6 +2,8 @@
  * http://usejsdoc.org/
  */
 
+module.exports = {
+runDialogueFlow: function executeDialogueFlow(){
 const fs = require('fs')
 
 const BotDriver = require('botium-core').BotDriver
@@ -11,14 +13,14 @@ const Source = require('botium-core').Source
 const driver = new BotDriver()
 	
 const compiler = driver.BuildCompiler()
-compiler.ReadScriptsFromDirectory('convos')
+compiler.ReadScriptsFromDirectory('testdata/dialogflow')
 	
 compiler.ExpandConvos()
 compiler.convos.forEach((convo) => console.log(convo.toString()))
 
 driver.BuildFluent()
   .Start()
-  .ReadScripts('convos')
+  .ReadScripts('testdata/dialogflow')
   .RunScripts()
   .Exec()
   .then(() => {
@@ -31,3 +33,5 @@ driver.BuildFluent()
 	console.log('')
     console.log('ERROR: ', err)
   })
+}
+};
