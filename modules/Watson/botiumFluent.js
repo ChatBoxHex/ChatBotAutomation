@@ -29,12 +29,24 @@ runWatsonFlow: function executeWatsonFlow(){
 	  .then(() => {
 		console.log('')
 	    console.log('SUCCESS: Had a successful Conversation')
+	    
+	    var createJSON = require("./Reports/createJSON.js");
+		createJSON.createData();
+	    
+		var reports = require("./Reports/Report.js");
+		reports.runReports();
+		
 	  })
 	  .catch((err) => {
 		console.log('')
 		console.log('FAILURE')
 		console.log('')
 	    console.log('ERROR: ', err)
+	    var createJSON = require("./Reports/createJSON.js");
+		createJSON.createData();
+	
+	    var reports = require("./Reports/Report.js");
+		reports.runReports();
 	  })
 }
 }
