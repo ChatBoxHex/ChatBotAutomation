@@ -1,27 +1,18 @@
 module.exports = {
-	createData: function createJSON(){
+	createData: function createJSON(expRes1,actRes1,stat1){
 		
-var fs = require('fs');
+		const fs = require('fs');
+		console.log(expRes1)
 
-fs.readFile('./modules/Watson/Reports/resultdata.json', 'utf-8', function(err, data) {
-	if (err) throw err
+		let result = {  
+		    ExpTC1: expRes1,
+		    ActTC1: actRes1, 
+		    Status1: stat1
+		};
 
-	var arrayOfObjects = JSON.parse(data)
-	arrayOfObjects.bot.push({
-		ExpectedResult: "ExpectedResults",
-		ActualResult:"ActualResults",
-		Status: "Passed"
-	})
-	arrayOfObjects.bot.push({
-		ExpectedResult: "ExpectedResultser",
-		ActualResult:"ActualResultser",
-		Status: "Passeder"
-	})
-	fs.writeFile('./modules/Watson/Reports/resultdata.json', JSON.stringify(arrayOfObjects), 'utf-8', function(err) {
-		if (err) throw err
-		
-	})
-})
+		let data = JSON.stringify(result);  
+		//Need to clean the resultdata file initially at the start
+		fs.writeFileSync('./modules/Watson/Reports/resultdata.json', data);  
 
 }
 }
