@@ -29,27 +29,10 @@ runWatsonFlow: function executeWatsonFlow(){
 	  .then(() => {
 		console.log('')
 	    console.log('SUCCESS: Had a successful Conversation')
-	    
-	    var createJSON = require("./Reports/createJSON.js");
-		createJSON.createData("Ok, let's go to the restaurant at 8:00 PM, on Thu, 24 May 2018.","Ok, let's go to the restaurant at 8:00 PM, on Wed, 16 May 2018.","Pass");
-		//createJSON.createData(errmes,errmes,"Pass");  //Use this once we have BOT request and response in a variable
-	    
-		var reports = require("./Reports/Report.js");
-		reports.runReports();
-		
 	  })
 	  .catch((err) => {
-		console.log('')
 		console.log('FAILURE')
-		console.log('')
 	    console.log('ERROR: ', err)
-	    var createJSON = require("./Reports/createJSON.js");
-		var errmes = err.message;
-		createJSON.createData("Ok, let's go to the restaurant at 8:00 PM, on Thu, 16 May 2018.","Ok, let's go to the restaurant at 8:00 PM, on Thu, 24 May 2018.","Fail");
-		//createJSON.createData(errmes,errmes,"Fail"); //Use this once we have BOT request and response in a variable
-	
-	    var reports = require("./Reports/Report.js");
-		reports.runReports();
 	  })
 }
 }
