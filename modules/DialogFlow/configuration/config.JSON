@@ -1,0 +1,11 @@
+{
+	"uri":"https://api.dialogflow.com/v1/query?v=20150910",
+	"method":"POST",
+	"type": "message",
+    "contexts":"shop",
+	"lang":"en",
+    "query":"Testing",
+    "sessionId":"12345",
+    "Authorization": "Bearer 0eee488024d141b29c6e2952739f17ab"
+	
+}

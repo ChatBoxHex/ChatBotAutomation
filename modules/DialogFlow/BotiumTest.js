@@ -1,37 +1,54 @@
-/**
- * http://usejsdoc.org/
- */
-
 module.exports = {
+		
 runDialogueFlow: function executeDialogueFlow(){
-const fs = require('fs')
+	var configuration = require('./configuration/config.json');
+	const request = require('request')
 
-const BotDriver = require('botium-core').BotDriver
-const Capabilities = require('botium-core').Capabilities
-const Source = require('botium-core').Source
+		  var options = {
+		    uri: configuration.uri,
+		    method: configuration.method,
 
-const driver = new BotDriver()
+		    json: {
+		    		type: configuration.type,
+		    		timestamp: new Date().toISOString(),
+		    		contexts:configuration.contexts,
+		    		lang:configuration.lang,
+		    		query:configuration.query,
+		    		sessionId:configuration.sessionId
+		    },
+		    headers: {
+		      'Authorization': configuration.Authorization
+		    }
+		  
+		  }
+		  
+	for(var i=0;i<2;i++)
+		{
+		
+		request(options, function (err, response, body) {
+		    if (err) {
+		      console.log('Error: ' + err)
+		    } else {
+		      console.log('OK')
+		    }
+		    if (body) {
+		    	StringResponse = JSON.stringify(body, null, 2);
+		    	var ResponseObject = JSON.parse(StringResponse);
+		      
+		    	assert("Hi, I can help with Testing of ChatBot",ResponseObject.result.fulfillment.speech)
+		    }
+		  })
+		  
+		}
 	
-const compiler = driver.BuildCompiler()
-compiler.ReadScriptsFromDirectory('testdata/dialogflow')
-	
-compiler.ExpandConvos()
-compiler.convos.forEach((convo) => console.log(convo.toString()))
+	function assert (expected, actual) {
+		 if (!actual || actual.indexOf(expected) < 0) {
+			    console.log(`ERROR: Expected <${expected}>, got <${actual}>`)
+			  } else {
+			    console.log(`SUCCESS: Got Expected <${expected}>`)
+			  }
+	}
+		  
 
-driver.BuildFluent()
-  .Start()
-  .ReadScripts('testdata/dialogflow')
-  .RunScripts()
-  .Exec()
-  .then(() => {
-	console.log('')
-    console.log('SUCCESS: Had a successful Conversation')
-  })
-  .catch((err) => {
-	console.log('')
-	console.log('FAILURE')
-	console.log('')
-    console.log('ERROR: ', err)
-  })
 }
 };
