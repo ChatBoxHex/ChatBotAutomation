@@ -1,7 +1,7 @@
 /**
  * Watson Chatbot Scripting
  */
-
+//test
 var watson = require('watson-developer-cloud');
 var fs=require('fs');
 var data=fs.readFileSync('WatsonSetup.json', 'utf8');
