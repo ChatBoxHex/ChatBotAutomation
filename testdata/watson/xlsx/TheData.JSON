@@ -1,0 +1,10 @@
+{
+	"bot":
+		[
+			{"TcNo":"1","UserInput":"Hi","ExpOp":"Hi, Good Day!"},
+			{"TcNo":"2","UserInput":"Need some testing help for chatbot","ExpOp":"Hi, I can help with Testing of ChatBot"},
+			{"TcNo":"3","UserInput":"Do you have a framework for Testing ChatBot","ExpOp":"Yes, we have a framework to test ChatBot"},
+			{"TcNo":"4","UserInput":"What kind of Framework is that","ExpOp":"We have a framework developed in NodeJS to test ChatBot"},
+			{"TcNo":"5","UserInput":"Thanks","ExpOp":"Bye, See you soon"}
+			]
+}
