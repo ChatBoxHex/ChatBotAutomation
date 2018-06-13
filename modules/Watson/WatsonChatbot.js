@@ -11,7 +11,7 @@ var Password = words[0].password;
 var Version = words[0].version;
 var url = words[0].url;
 var workspace = words[0].workspace_id;
-testData = userInput('D:\ChatbotAPI\ChatBotAutomation\testdata\TheData.json');
+testData = userInput("D:\ChatbotAPI\ChatBotAutomation\testdata\TheData.json");
 console.log(testData[0][j]);
 console.log(testData[1][j]);
 var assistant = new watson.AssistantV1({
