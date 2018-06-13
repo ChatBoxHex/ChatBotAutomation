@@ -11,38 +11,35 @@ var Password = words[0].password;
 var Version = words[0].version;
 var url = words[0].url;
 var workspace = words[0].workspace_id;
-testData = userInput("D:\ChatbotAPI\ChatBotAutomation\testdata\TheData.json");
-console.log(testData[0][j]);
-console.log(testData[1][j]);
+testData = userInput("./TheData.json");
 var assistant = new watson.AssistantV1({
   username: UserName,
   password: Password,
   version: Version,
   url: url
 });
-var User = ["Hi","goodbye"];
-ExpectedResultArray=[];
-ExpectedResultArray = ["Good day to you","OK, See you later!"];
+/*ExpectedResultArray=[];
+ExpectedResultArray = ["Good day to you","OK, See you later!"];*/
 //var j =ExpectedResultArray.length-1;
 var j = 0;
 var UserLoop;
 var ActualBotResponse="NULL";
-for (i = 0;i<User.length;i++)
+for (i = 0;i<testData[0].length;i++)
 {
-var ExResponse = ExpectedResultArray[i];
-//console.log(User[i]);
+var ExResponse = testData[1][i];
+
 assistant.message({
   workspace_id: workspace,
   input: {
 	  
-	  'text': User[i]
+	  'text': testData[0][i]
 		  }
 }, function(err, response,ExResponse) {
   if (err)
     console.log('error:', err);
   else   
     //j =0;
-    StringResponse = JSON.stringify(response, null, 2);
+    var StringResponse = JSON.stringify(response, null, 2);
     var ResponseObject = JSON.parse(StringResponse);   
     ActualBotResponse = ResponseObject.output.text;   
     assert(ResponseObject.output.text,j);
@@ -52,10 +49,10 @@ assistant.message({
 function assert(BotResponse,j)
 {
   var BotResponse;  
-  if (BotResponse == ExpectedResultArray[j])
-    	console.log ("Actual Bot Response" , BotResponse, "has matched with Expected Bot Response" ,  ExpectedResultArray[j]);
+  if (BotResponse == testData[1][j])
+    	console.log ("Actual Bot Response" , BotResponse, "has matched with Expected Bot Response" ,  testData[1][j]);
   else
-    	console.log("Actual Bot Response" , BotResponse,  "not matched with Expected Bot Response" ,  ExpectedResultArray[j]);
+    	console.log("Actual Bot Response" , BotResponse,  "not matched with Expected Bot Response" ,  testData[1][j]);
 }
 }
 function userInput(jSONFile){

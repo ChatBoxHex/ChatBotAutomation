@@ -1,0 +1,7 @@
+{
+	"bot":
+		[
+			{"TcNo":"1","UserInput":"Hi","ExpOp":"Good day to you"},
+			{"TcNo":"2","UserInput":"Good Bye","ExpOp":"OK, See you later!"}			
+			]
+}
