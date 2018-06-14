@@ -22,6 +22,7 @@ var assistant = new watson.AssistantV1({
 ExpectedResultArray = ["Good day to you","OK, See you later!"];*/
 //var j =ExpectedResultArray.length-1;
 var j = 0;
+var i =0;
 var UserLoop;
 var ActualBotResponse="NULL";
 for (i = 0;i<testData[0].length;i++)

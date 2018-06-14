@@ -1,7 +1,14 @@
 {
 	"bot":
 		[
-			{"TcNo":"1","UserInput":"Hi","ExpOp":"Good day to you"},
-			{"TcNo":"2","UserInput":"Good Bye","ExpOp":"OK, See you later!"}			
+			{"TcNo":"1","UserInput":"Hi","ExpOp":"Hello! I'm doing good. I'm here to help you. Just say the word."},
+			{"TcNo":"2","UserInput":"hi, what things can you do for me?","ExpOp":"I'm trained to turn things on or off in the car dashboard, play music and find nearby amenities like restaurants, gas stations and restrooms."},
+			{"TcNo":"3","UserInput":"ok, turn on the lights please","ExpOp":"I'll turn on the lights for you."},
+			{"TcNo":"4","UserInput":"play some music","ExpOp":"Sure thing! Which genre would you prefer? Jazz is my personal favorite."},
+			{"TcNo":"5","UserInput":"My personal favorite is Rock","ExpOp":"Great choice! Playing some rock for you."},
+			{"TcNo":"6","UserInput":"find near by restaurants for me","ExpOp":"Of course. Do you have a specific cuisine in mind?"},
+			{"TcNo":"7","UserInput":"yes, Italian please","ExpOp":"Super! I've found 5 locations for you. Which one would you like to drive to?"},
+			{"TcNo":"8","UserInput":"To the nearest one, today at 8 pm","ExpOp":"Sure thing! The first restaurant gets great reviews. Ok, let's go to the restaurant at 8:00 PM, on Wed, 13 Jun 2018."},
+			{"TcNo":"9","UserInput":"ok thank you, have a nice day","ExpOp":"Okay! Speak to you soon."}
 			]
 }
