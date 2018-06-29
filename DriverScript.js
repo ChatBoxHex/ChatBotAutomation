@@ -10,7 +10,7 @@ console.log(fileToRun);
 		  tools.runDialogueFlow();
 	  } 
 	  else if(botPlatform === "watson"){
-		  var watson = require("./modules/Watson/botiumFluent.js");
+		  var watson = require("./modules/Watson/WatsonChatbot.js");
 		  watson.runWatsonFlow();
 	  }
 	  else if(botPlatform === "facebook") {
