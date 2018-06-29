@@ -2,6 +2,9 @@
  * Watson Chatbot Scripting
  */
 //test
+module.exports = {
+		
+  runWatsonFlow: function executeWatsonFlow(){
 var watson = require('watson-developer-cloud');
 var fs=require('fs');
 var data=fs.readFileSync('WatsonSetup.json', 'utf8');
@@ -25,7 +28,7 @@ var j = 0;
 var i =0;
 var UserLoop;
 var ActualBotResponse="NULL";
-for (i = 0;i<testData[0].length;i++)
+for (let i = 0;i<testData[0].length;i++)
 {
 var ExResponse = testData[1][i];
 
@@ -35,7 +38,7 @@ assistant.message({
 	  
 	  'text': testData[0][i]
 		  }
-}, function(err, response,ExResponse) {
+}, function(err, response) {
   if (err)
     console.log('error:', err);
   else   
@@ -68,4 +71,6 @@ function userInput(jSONFile){
   return [userInput,
     expOpt	
     ];
+}
+  }
 }
