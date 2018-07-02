@@ -30,7 +30,6 @@ var UserLoop;
 var ActualBotResponse="NULL";
 for (let i = 0;i<testData[0].length;i++)
 {
-var ExResponse = testData[1][i];
 
 assistant.message({
   workspace_id: workspace,
