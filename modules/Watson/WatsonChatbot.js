@@ -28,27 +28,40 @@ var j = 0;
 var i =0;
 var UserLoop;
 var ActualBotResponse="NULL";
-for (let i = 0;i<testData[0].length;i++)
+/*for (let i = 0;i<testData[0].length;i++)
+{*/
+WatsonResponseCall(0);
+function WatsonResponseCall(i)
 {
+  if (i<testData[0].length)
+  {
+      assistant.message({
+        workspace_id: workspace,
+        input: {
+          
+          'text': testData[0][i]
+            }
+      }, function(err, response) {
+        if (err)
+          console.log('error:', err);
+        else   
+          //j =0;
+          var StringResponse = JSON.stringify(response, null, 2);
+          var ResponseObject = JSON.parse(StringResponse);   
+          ActualBotResponse = ResponseObject.output.text;   
+          //console.log(ActualBotResponse);          
+          if (ActualBotResponse == testData[1][i])            
+            console.log ("Actual Bot Response" , ActualBotResponse, "has matched with Expected Bot Response" ,  testData[1][i]);         
+          else
+            console.log ("Actual Bot Response" , ActualBotResponse,  "not matched with Expected Bot Response" ,  testData[1][i]); 
+          WatsonResponseCall(i+1);
+      /*   assert(ResponseObject.output.text,j);
+          j=j+1;*/
 
-assistant.message({
-  workspace_id: workspace,
-  input: {
-	  
-	  'text': testData[0][i]
-		  }
-}, function(err, response) {
-  if (err)
-    console.log('error:', err);
-  else   
-    //j =0;
-    var StringResponse = JSON.stringify(response, null, 2);
-    var ResponseObject = JSON.parse(StringResponse);   
-    ActualBotResponse = ResponseObject.output.text;   
-    assert(ResponseObject.output.text,j);
-    j=j+1;
-    
-});
+          
+      });
+    }
+}
 function assert(BotResponse,j)
 {
   var BotResponse;  
@@ -58,7 +71,7 @@ function assert(BotResponse,j)
     	console.log("Actual Bot Response" , BotResponse,  "not matched with Expected Bot Response" ,  testData[1][j]);
 }
 
-}
+//}
 function userInput(jSONFile){
   var config = require(jSONFile);
   var userInput = []; 
