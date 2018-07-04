@@ -7,14 +7,14 @@ module.exports = {
 runWatsonFlow: function executeWatsonFlow(){
 var watson = require('watson-developer-cloud');
 var fs=require('fs');
-var data=fs.readFileSync('WatsonSetup.json', 'utf8');
+var data=fs.readFileSync('./Setup/Watson/WatsonSetup.json', 'utf8');
 var words=JSON.parse(data);
 var UserName = words[0].username;
 var Password = words[0].password;
 var Version = words[0].version;
 var url = words[0].url;
 var workspace = words[0].workspace_id;
-testData = userInput("./TheData.json");
+testData = userInput("../../testdata/watson/TheData.json");
 var assistant = new watson.AssistantV1({
   username: UserName,
   password: Password,

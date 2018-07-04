@@ -1,0 +1,11 @@
+{
+	"bot":
+		[
+			{"TcNo":"1","UserInput":"Hi","ExpOp":"Good day to you"},
+			{"TcNo":"2","UserInput":"Cancel Order","ExpOp":"I can help you cancel your order"},
+			{"TcNo":"3","UserInput":"can i see my account balance","ExpOp":"Sure I can help with balance enquiry"},
+			{"TcNo":"4","UserInput":"can i ask for a payment deferment","ExpOp":"Sure I can help you with Payment deferment"},
+			{"TcNo":"5","UserInput":"can you assist me with paying my bill","ExpOp":"Sure I can help you with payment"},
+			{"TcNo":"6","UserInput":"goodbye","ExpOp":"OK, See you later!"}
+			]
+}
